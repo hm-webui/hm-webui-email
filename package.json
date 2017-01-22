@@ -1,0 +1,98 @@
+{
+  "name": "hm-webui-email",
+  "version": "0.0.1",
+  "description": "A hm-webui plugin to send SMTP E-Mails from other plugins",
+  "keywords": [
+    "hm-webui",
+    "hm-webui-plugin",
+    "SMTP",
+    "E-Mail"
+  ],
+  "author": "paspat",
+  "contributors": [
+    "paspat"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hm-webui/hm-webui-email.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^2.3.0",
+    "nodemailer-smtp-transport": "^2.4.1",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.6.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "jshintConfig": {
+    "eqnull": true,
+    "unused": true,
+    "undef": true,
+    "node": true
+  },
+  "hmWebUI": {
+    "icon": "email.png",
+    "type": ["email"],
+    "priority": 20,
+    "parameter": {
+      "host": {
+        "type": "text",
+        "required": true,
+        "label": "SMTP Host",
+        "help": {
+          "en": "The hostname or ip address of the mail server",
+          "de": "Der Hostname oder die IP Adresse des Mail Servers "
+        }
+      },
+      "port": {
+        "type": "integer",
+        "required": true,
+        "defaultValue": 25,
+        "min": 1,
+        "max": 65535,
+        "label": "SMTP Port",
+        "help": {
+          "en": "The mail server port (default is 25)",
+          "de": "Der Port des Mail Servers (Standard is: 25)"
+        }
+      },
+      "user": {
+        "type": "text",
+        "label": {
+          "en": "SMTP User",
+          "de": "SMTP Benutzer"
+        },
+        "help": {
+          "en": "The user for tha authentication at the server",
+          "de": "Der Benutzername um sich am Server anzumelden"
+        }
+      },
+      "password": {
+        "type": "password",
+        "label": {
+          "en": "SMTP User Password",
+          "de": "SMTP Benutzer Passwort"
+        },
+        "help": {
+          "en": "The password to authenticate the user at the server",
+          "de": "Das Passwort um sich am Server anzumelden"
+        }
+      },
+      "ignoreWrongCertificate": {
+        "type": "checkbox",
+        "label": {
+          "en": "Accept invalid SSL certificates?",
+          "de": "Ungültige SSL Zertifiakte akzeptieren?"
+        },
+        "help": {
+          "en": "If the mail server is using an expired or invalid SSL certificate<br>send the E-Mail anyway and ignore the invalid certificate",
+          "de": "Wenn der Mail Server ein abgelaufenes or ungültiges SSL Zertifikat nutzt,<br>wird die E-Mail trotzdem gesendet und das ungültige Zertifikat ignoriert"
+        }
+      }
+    }
+  }
+}
